@@ -1,4 +1,5 @@
 import json
+from data_fetcher import fetch_data
 
 
 def load_data(file_path):
@@ -39,13 +40,15 @@ def generate_animals_html(output):
 
 
 def main():
-    data = load_data("animals_data.json")
+    animal_name = input("Enter a name of an animal: ")
+    data = fetch_data(animal_name)
 
     output = ""
     for animal_obj in data:
         output += serialize_animal(animal_obj)
 
     generate_animals_html(output)
+    print("Website was successfully generated to the file animals.html.")
 
 
 if __name__ == "__main__":

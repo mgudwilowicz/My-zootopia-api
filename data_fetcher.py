@@ -18,6 +18,5 @@ headers = {
 def fetch_data(animal_name):
     response = requests.get(url + animal_name, headers=headers)
     data = response.json()
-    print(data)
+    return data
 
-fetch_data('fox')
