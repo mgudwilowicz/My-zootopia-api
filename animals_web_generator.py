@@ -47,8 +47,12 @@ def main():
     for animal_obj in data:
         output += serialize_animal(animal_obj)
 
-    generate_animals_html(output)
-    print("Website was successfully generated to the file animals.html.")
+    if output:
+        generate_animals_html(output)
+        print("Website was successfully generated to the file animals.html.")
+    else:
+        output = f"<h2>The animal '{animal_name}' doesn't exist.</h2>"
+        generate_animals_html(output)
 
 
 if __name__ == "__main__":
